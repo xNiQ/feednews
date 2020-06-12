@@ -8,14 +8,11 @@ import Main from './pages/Main';
 class App extends Component {
   render() {
     return(
-      <div>
       <BrowserRouter>
         <Route exact path="/" component={Main}/>
         <Route exact path="/login-to-admin-dashboard" component={AuthPage} />
         <PrivateRoute component={AdminDashboard} exact path="/dashboard"/>
       </BrowserRouter>
-
-      </div>
     )
   }
 }
