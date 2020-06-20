@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 class Main extends Component {
     constructor(props) {
@@ -9,8 +10,8 @@ class Main extends Component {
     render() {
         return(
             <div>
+            <Navbar/>
             <h1>hello from Main!</h1>
-            <Link to="/login-to-admin-panel">elo</Link>
             </div>
         )
     }

@@ -3,20 +3,24 @@ import decode from 'jwt-decode';
 
 export async function auth(data, redirect) {
     const authResponse = await axios.post('/user/auth', data);
-    if(authResponse.status == 200) {
+    if(authResponse.data.success) {
         const token = authResponse.data.token;
         localStorage.setItem('token', token);
         const exp = decode(localStorage.getItem('token')).exp;
         if (Date.now() >= exp * 1000) {
             return false;
           }
-    } else {
-        return false;
+        const decoded = decode(localStorage.getItem('token')).payload;
+        return decoded;
+         } else {
+        return 0;
     }
 
-    const decoded = decode(localStorage.getItem('token')).payload;
-    window.location.replace(redirect);
-    return decoded;
+}
+
+export function getUserID() {
+    const _id = decode(localStorage.getItem('token')).payload;
+    return _id;
 }
 
 export function isLogged() {

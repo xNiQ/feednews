@@ -48,18 +48,18 @@ router.post('/auth', (req,res) => {
     const { login, password } = req.body;
     User.find({login}, (err,usr) => {
         if(!usr.length > 0) {
-            res.status(403).send({error: "Invalid login or password."});
+            res.send({success: false, error: "Invalid login or password."});
         } else {
             bcrypt.compare(password, usr[0].password, (err,result) => {
                 if(!result) {
-                    res.send({error: "Invalid login or password!"});
+                    res.send({success: false, error: "Invalid login or password!"});
                 } else {
                     const payload = usr[0].id
                     const token = jwt.sign({payload}, process.env.SECRET_TOKEN, {expiresIn: '3h'});
                     res.set({
                         'authorization' : token,
                         'x-access-token' : token})
-                        .send({info: "Logged in!", token});
+                        .send({success: true, token});
                 }
             })
         }
