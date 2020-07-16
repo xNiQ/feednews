@@ -13,18 +13,43 @@ router.get('/', (req,res) => {
     })
 })
 
+// Delete post
+router.delete('/delete/:slug', auth, (req,res) => {
+    const slug = req.params.slug;
+
+    Post.findOneAndDelete({slug}, (err,post) => {
+        if(err) { console.log(err) };
+        res.send({
+            'success' : true,
+            'deletedPost' : post
+        })
+    })
+})
+
 //POST Post
 router.post('/create', auth, async (req,res) => {
-    let { title, titleImg, content, user} = req.body;
+    let { title, titleImg, tag, content, user} = req.body;
 
     let postDetails = {
         title,
         titleImg,
         content,
+	tag,
         user
     }
 
     postDetails.slug = slugify(postDetails.title);
+
+    // handle SAME TITLE!!!!
+
+    // Post.find({slug : postDetails.slug}, (err,post) => {
+    //     if(post.length > 0) {
+    //         res.send({
+    //             'success' : false,
+    //             'info': 'Post o takim tytule już istnieje'
+    //         })
+    //     }
+    // })
 
     let newPost = new Post(postDetails);
         User.findById(newPost.user, async (err,usr) => {

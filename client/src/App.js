@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Route} from 'react-router-dom'
-import AuthPage from './pages/AuthPage';
+import React from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from './pages/Home';
+import PostDetails from './pages/PostDetails';
 import PrivateRoute from './components/PrivateRoute';
 import Auth from './components/Auth';
 import AdminDashboard from './pages/AdminDashboard';
-import PostDetails from './pages/PostDetails'
-import Main from './pages/Main';
+import PostEditor from './pages/PostEditor';
+import CreatePost from './pages/CreatePost';
+import AuthPage from './pages/AuthPage';
 
+function App() {
+  return (
+    <Router>
+      <Route exact path='/' component={Home}/>
+      <Route exact path='/:slug' component={PostDetails}/>
+      
 
-class App extends Component {
-  render() {
-    return(
-      <BrowserRouter>
-        {/* USER ROUTES */}
-        <Route exact path="/" component={Main}/>
-        <Route exact strict path="/post/:slug" component={PostDetails} />
-
-        {/* ADMIN ROUTES */}
-        <Auth exact path="/login-to-admin-dashboard" component={AuthPage} />
-        <PrivateRoute component={AdminDashboard} exact path="/dashboard"/>
-      </BrowserRouter>
-    )
-  }
+        <Auth exact path="/admin/login-to-admin-dashboard" component={AuthPage} />
+        <PrivateRoute component={AdminDashboard} exact path="/admin/dashboard"/>
+        <PrivateRoute component={PostEditor} exact path="/admin/dashboard/:slug"/>
+        <PrivateRoute component={CreatePost} exact path="/admin/dashboard/create"/>
+    </Router>
+  );
 }
 
 export default App;

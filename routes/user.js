@@ -55,7 +55,7 @@ router.post('/auth', (req,res) => {
                     res.send({success: false, error: "Invalid login or password!"});
                 } else {
                     const payload = usr[0].id
-                    const token = jwt.sign({payload}, process.env.SECRET_TOKEN, {expiresIn: '3h'});
+                    const token = jwt.sign({payload}, process.env.SECRET_TOKEN, {expiresIn: '6h'});
                     res.set({
                         'authorization' : token,
                         'x-access-token' : token})

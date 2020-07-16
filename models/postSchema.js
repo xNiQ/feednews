@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const PostSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: true,
+        required: true
     },
     titleImg: {
         type: String,
@@ -13,13 +13,16 @@ const PostSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    slug: {
+    tag : {
         type: String,
+        required: true
+    },
+    slug: {
+        type: String
     }, 
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
+        ref: 'User'
     }
 }, {
     timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt'}

@@ -1,23 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
+  "short_name": "Twojerabaciki.pl - odbierz darmowe pieniądze z wszystkich dostępnych źródeł i bonusów!",
+  "name": "Promujemy wszystkie konkursy oraz promocje gdzie rozdawane są darmowe pieniądze dla użytkowników banków bądź aplikacji! Z nami zarobisz duże kwoty nie wychodząc z domu. Internet to kopalnia złota, ale trzeba wiedzieć gdzie szukać, my Ci w tym pomożemy!",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

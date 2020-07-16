@@ -6,7 +6,7 @@ const Auth = ({component: Component, ...rest}) => {
     return (
         <Route {...rest} render={props => (
             isLogged() ?
-                <Redirect to="/dashboard"/>
+                <Redirect to="/admin/dashboard"/>
             : <Component {...props}/>
         )} />
     );

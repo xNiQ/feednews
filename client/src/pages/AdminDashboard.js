@@ -3,6 +3,7 @@ import Navbar from '../components/NavbarAdmin';
 import { getUserID } from '../controllers/auth';
 import axios from 'axios'
 import styled from 'styled-components';
+import { deletePost } from '../controllers/postController'; 
 
 
 // Styled components
@@ -73,6 +74,7 @@ const PostItem = styled.div`
 // Components
 
 const Post = (props) => {
+
     return (
       <PostBox>
         <PostItem>
@@ -82,7 +84,7 @@ const Post = (props) => {
           <h5>Img: </h5><img src={props.titleImg} alt="not found img"/>
 
           <PostButton className="postbtns">Edytuj</PostButton>
-          <PostButton className="postbtns">Usuń</PostButton>
+          <PostButton onClick={props.onClick} className="postbtns">Usuń</PostButton>
         </PostItem>
       </PostBox>
     )
@@ -94,6 +96,7 @@ const Post = (props) => {
 class AdminDashboard extends Component {
   constructor(props) {
     super(props);
+    this.handleDelete = this.handleDelete.bind(this);
     this.state = {
       login: 'null',
       posts: []
@@ -107,9 +110,23 @@ class AdminDashboard extends Component {
     const { login } = username.data;
     this.setState({login});
 
-    const postsResponse = await axios.get('/post/');
+    const postsResponse = await axios.get('/post/', {
+      headers : { 'authorization' : localStorage.getItem('token')}
+    });
     this.setState({posts : postsResponse.data });
     console.log(this.state.posts);
+  }
+
+  handleDelete(slug) {
+    const { posts } = this.state;
+    const newPostArray = posts.filter(el => {
+      return el.slug != slug;
+    })
+    axios.delete(`/post/delete/${slug}`, {
+      headers : { authorization : localStorage.getItem('token')}
+    })
+    // deletePost(slug)
+    this.setState({posts : newPostArray})
   }
 
   render() {
@@ -123,7 +140,7 @@ class AdminDashboard extends Component {
           <FlexBox>
             <PostButton>Dodaj post</PostButton>
             {posts.map(post => {
-                return <Post key={post._id} title={post.title} slug={post.slug} titleImg={post.titleImg} content={post.content}/>
+                return <Post onClick={() => this.handleDelete(post.slug)} key={post._id} title={post.title} slug={post.slug} titleImg={post.titleImg} content={post.content}/>
             })}
             
           </FlexBox>
