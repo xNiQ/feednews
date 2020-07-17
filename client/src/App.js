@@ -18,7 +18,7 @@ function App() {
 
         <Auth exact path="/admin/login-to-admin-dashboard" component={AuthPage} />
         <PrivateRoute component={AdminDashboard} exact path="/admin/dashboard"/>
-        <PrivateRoute component={PostEditor} exact path="/admin/dashboard/:slug"/>
+        <PrivateRoute component={PostEditor} exact path="/admin/dashboard/edit/:slug"/>
         <PrivateRoute component={CreatePost} exact path="/admin/dashboard/create"/>
     </Router>
   );

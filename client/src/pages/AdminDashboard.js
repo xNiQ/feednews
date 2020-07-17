@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Navbar from '../components/NavbarAdmin';
 import { getUserID } from '../controllers/auth';
-import axios from 'axios'
+import axios from 'axios';
 import styled from 'styled-components';
-import { deletePost } from '../controllers/postController'; 
+import { Link } from 'react-router-dom';
 
 
 // Styled components
@@ -20,7 +20,7 @@ const FlexBox = styled.div`
 `
 
 
-const PostButton = styled.button`
+const PostButton = styled(Link)`
     margin: 5%;
     font-family: 'Ruda', sans-serif;
     font-size: 0.8rem;
@@ -120,7 +120,7 @@ class AdminDashboard extends Component {
   handleDelete(slug) {
     const { posts } = this.state;
     const newPostArray = posts.filter(el => {
-      return el.slug != slug;
+      return el.slug !== slug;
     })
     axios.delete(`/post/delete/${slug}`, {
       headers : { authorization : localStorage.getItem('token')}
@@ -138,7 +138,7 @@ class AdminDashboard extends Component {
           <Navbar username={login}/>
 
           <FlexBox>
-            <PostButton>Dodaj post</PostButton>
+            <PostButton to="/admin/dashboard/create">Dodaj post</PostButton>
             {posts.map(post => {
                 return <Post onClick={() => this.handleDelete(post.slug)} key={post._id} title={post.title} slug={post.slug} titleImg={post.titleImg} content={post.content}/>
             })}
