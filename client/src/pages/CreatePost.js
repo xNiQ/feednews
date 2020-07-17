@@ -37,6 +37,8 @@ class CreatePost extends Component {
             axios.post('/post/create', postDetails, {
                 headers: { authorization: token}
             });
+        } else {
+            return 0;
         }
 
     }
