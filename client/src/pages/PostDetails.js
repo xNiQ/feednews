@@ -56,7 +56,7 @@ class PostDetails extends Component {
                     <img src={post.titleImg} alt="Title Img"/>
                     <h1>{post.title}</h1>
                         <h2 id="postTag">{post.tag}</h2>
-                        <h2>Autor: admin</h2>
+                        <h2>Autor: {post.user}</h2>
                 </Header>
                 <PostDescription>
                     <div dangerouslySetInnerHTML={{ __html: post.content}} />
