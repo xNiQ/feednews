@@ -52,17 +52,10 @@ class PostDetails extends Component {
             <GlobalStyle>
                 <Navbar/>
                 <Header>
-                    <div className="imgWrapper">
-                        <img src={post.titleImg} alt="Title Img"/>
-                    </div>
-                    <div className="infoWrapper">
-                        <h1>{post.title}</h1>
-                        <div className="moreInfoWrapper">
-                            <h2 id="postTag">{post.tag}</h2>
-                            <h2>Autor: admin</h2>
-                            <h2>{post.createdAt}</h2>
-                        </div>
-                    </div>
+                    <img src={post.titleImg} alt="Title Img"/>
+                    <h1>{post.title}</h1>
+                        <h2 id="postTag">{post.tag}</h2>
+                        <h2>Autor: admin</h2>
                 </Header>
                 <PostDescription>
                     <div dangerouslySetInnerHTML={{ __html: post.content}} />
@@ -102,7 +95,7 @@ const PostDescription = styled.section`
 `
 
 const WatchLaterItemWrapper = styled.div`
-    margin: 0 2rem;
+    margin: 1rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -121,32 +114,30 @@ const WatchLaterItemWrapper = styled.div`
 const WatchLater = styled.section`
     margin: 2rem;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 `
 
 const Header = styled.div`
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
-    margin-top: 2rem;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem auto;
 
-    .imgWrapper {
-        width: 40%;
-        margin-left: 2rem;
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 { 
+        font-size: 1rem;
     }
 
     img {
-        height: 25rem;
-    }
-
-    .infoWrapper {
-        display: flex;
-        flex-direction: column;
-        width: 60%;
-        margin-right: 10rem;
-        margin-left: 3rem;
+        height: auto;
+        width: 25rem;
     }
 
     #postTag {

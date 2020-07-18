@@ -34,30 +34,24 @@ router.post('/create', auth, async (req,res) => {
         title,
         titleImg,
         content,
-	tag,
+	    tag,
         user
     }
 
     postDetails.slug = slugify(postDetails.title);
 
-    // handle SAME TITLE!!!!
-
-    // Post.find({slug : postDetails.slug}, (err,post) => {
-    //     if(post.length > 0) {
-    //         res.send({
-    //             'success' : false,
-    //             'info': 'Post o takim tytule już istnieje'
-    //         })
-    //     }
-    // })
-
-    let newPost = new Post(postDetails);
-        User.findById(newPost.user, async (err,usr) => {
-            usr.posts.push(newPost._id);
-            await usr.save();
-        })
-    await newPost.save();
-        res.send(newPost)
+    Post.find({slug : postDetails.slug}, async (err,post) => {
+        if(post.length > 0) {
+            res.send({
+                'success' : false,
+                'info': 'Post o takim tytule już istnieje'
+            })
+        } else {
+            let newPost = new Post(postDetails);
+            await newPost.save();
+                res.send(newPost)
+        }
+    })
 });
 
 //GET Post by ID
@@ -66,6 +60,16 @@ router.get('/:slug', (req,res) => {
         res.send(post);
     });
 })
+
+router.post('/change', auth, (req,res) => {
+    let { _id,titleImg, tag, content, user} = req.body;
+    Post.findByIdAndUpdate(_id, {titleImg, tag, content, user}, (err,response) => {
+        if(err) {
+            throw new Error(err)
+        }
+        res.send(response);
+    })
+});
 
 
 module.exports = router;

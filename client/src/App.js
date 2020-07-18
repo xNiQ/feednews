@@ -6,7 +6,6 @@ import PrivateRoute from './components/PrivateRoute';
 import Auth from './components/Auth';
 import AdminDashboard from './pages/AdminDashboard';
 import PostEditor from './pages/PostEditor';
-import CreatePost from './pages/CreatePost';
 import AuthPage from './pages/AuthPage';
 
 function App() {
@@ -19,7 +18,7 @@ function App() {
         <Auth exact path="/admin/login-to-admin-dashboard" component={AuthPage} />
         <PrivateRoute component={AdminDashboard} exact path="/admin/dashboard"/>
         <PrivateRoute component={PostEditor} exact path="/admin/dashboard/edit/:slug"/>
-        <PrivateRoute component={CreatePost} exact path="/admin/dashboard/create"/>
+        <PrivateRoute component={PostEditor} exact path="/admin/dashboard/create"/>
     </Router>
   );
 }
