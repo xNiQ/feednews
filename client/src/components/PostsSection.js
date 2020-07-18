@@ -101,10 +101,10 @@ const Post = (props) => (
         <Link to={props.slug}>
         <img src={props.titleImg} alt="titleImg"/>
         </Link>
-            <h2 className="postTag">{props.tag}</h2>
-            <h1>{props.title}</h1>
-            <Link to={props.slug}>Czytaj dalej &gt;&gt;</Link>
-            <h2 id="createdAt">{props.createdAt.slice(0,10)}</h2>
+        <h2 className="postTag">{props.tag}</h2>
+        <h1>{props.title}</h1>
+        <ReadMoreButton to={props.slug}>Czytaj dalej</ReadMoreButton>
+        <h2 id="createdAt">{props.createdAt.slice(0,10)}</h2>
     </PostDetails>
 )
 
@@ -114,6 +114,7 @@ const PaginationWrapper = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-bottom: 2.5rem;
 
     h4 {
         margin: 1rem;
@@ -129,6 +130,7 @@ const PaginationWrapper = styled.div`
 const LatestPosts = styled.div`
     display: flex;
     flex-direction: column;
+    max-width: 50%;
     font-size: 1.5rem;
     margin-left: 5rem;
     margin-top: 2rem;
@@ -140,6 +142,20 @@ const LatestPost = styled(Link)`
     text-decoration: none;
 `
 
+const ReadMoreButton = styled(Link)`
+    width: 25%;
+    height: 3.5rem;
+    font-size: 1.1rem;
+    text-align: center;
+    margin: auto;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    margin: 1rem;
+    background-color: #03adfc;
+`
+
 const PostDetails = styled.div`
     display: flex;
     justify-content: center;
@@ -147,11 +163,12 @@ const PostDetails = styled.div`
     flex-direction: column;
     width: 100%;
     background-color: white;
-    height: 30rem;
+    height: auto;
     margin: 1.5rem;
-    -webkit-box-shadow: 1px 2px 9px 2px rgba(0,0,0,0.75);
-    -moz-box-shadow: 1px 2px 9px 2px rgba(0,0,0,0.75);
-    box-shadow: 1px 2px 9px 2px rgba(0,0,0,0.75);
+    padding: 2rem;
+    -webkit-box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 2px 4px 2px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 4px 1px rgba(125,125,125,0.75);
     /* border: solid 1px black; */
     
     h2 {
@@ -163,25 +180,23 @@ const PostDetails = styled.div`
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
         margin: 1rem 0;
     }
 
     a {
-        color: black;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     img {
-        width: 20rem;
-        height: 15rem;
-        /* margin-right: 2rem; */
-        margin-top: 3rem;
+        max-width:100%;
+        height: auto;
+        margin-top: 2rem;
     }
 
     .postTag {
         color: coral;
-        margin-top: 1rem;
+        margin-top: 0.5rem;
     }
 `
 

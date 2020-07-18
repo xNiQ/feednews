@@ -26,7 +26,6 @@ const NavItem = styled.div`
         color: white;
         font-family: 'Ruda', sans-serif;
         text-decoration: none;
-        /* transition: all 0.5s ease-in-out; */
     }
 
     a:hover{
@@ -49,7 +48,7 @@ const NavbarAdmin = props => {
     return(
         <GlobalStyle>
             <Nav>
-                <NavItem><Link to="/">Home</Link></NavItem>
+                <NavItem><Link to="/">Strona główna</Link></NavItem>
                 <NavItem><h4>Jesteś zalogowany jako <h5>{props.username}</h5></h4></NavItem>
                 <NavItem><Link id="logout" onClick={logout} to="/">Wyloguj</Link></NavItem>
             </Nav>

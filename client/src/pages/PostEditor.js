@@ -52,7 +52,7 @@ class PostEditor extends Component {
             const createRequest = await axios.post('/post/create', postDetails, {
                 headers: { authorization: token}
             });
-            if(createRequest.data.success == undefined) {
+            if(createRequest.data.success === undefined) {
                 window.location = '/admin/dashboard';
             } else {
                 this.setState({error: true})
@@ -65,13 +65,13 @@ class PostEditor extends Component {
     }
 
     async handleSubmitEdit(_id) {
-        const { title, titleImg, tag, user, content } = this.state;
+        const { titleImg, tag, user, content } = this.state;
         let postDetails = {_id,titleImg,tag,user,content };
         const token = localStorage.getItem('token');
         const changeRequest = await axios.post(`/post/change`, postDetails, {
             headers: { authorization: token}
         });
-        if(changeRequest.data.success == undefined) {
+        if(changeRequest.data.success === undefined) {
             window.location = '/admin/dashboard';
         } else {
             this.setState({error: true})

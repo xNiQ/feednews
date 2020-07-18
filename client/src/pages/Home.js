@@ -43,6 +43,7 @@ class Home extends Component {
 
 const BodyStyle = styled.div`
     background-color: white;
+    font-family: 'Lato', sans-serif;
 `
 
 export default Home;

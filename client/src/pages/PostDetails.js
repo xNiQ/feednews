@@ -50,6 +50,7 @@ class PostDetails extends Component {
         const { post, posts } = this.state;
         return (
             <GlobalStyle>
+                <title>{post.title}</title>
                 <Navbar/>
                 <Header>
                     <img src={post.titleImg} alt="Title Img"/>
@@ -95,11 +96,12 @@ const PostDescription = styled.section`
 `
 
 const WatchLaterItemWrapper = styled.div`
-    margin: 1rem 1rem;
+    margin: 1rem 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 28%;
 
     a {
         color: black;
@@ -129,6 +131,7 @@ const Header = styled.div`
 
     h1 {
         font-size: 3rem;
+        margin: 1.5rem 0;
     }
 
     h2 { 

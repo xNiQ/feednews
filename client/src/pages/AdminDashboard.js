@@ -115,7 +115,7 @@ const FlexBox = styled.div`
 const PostButton = styled(Link)`
     margin: 5%;
     font-family: 'Ruda', sans-serif;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     width: 10%;
     padding: 1%;
     border-radius: 5px;
@@ -127,11 +127,13 @@ const PostBox = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 `
 
 const PostItem = styled.div`
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin: 1.1%;
     padding: 1%;
     width: 90%;

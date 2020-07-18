@@ -23,7 +23,7 @@ class HeroSection extends Component {
         return (
             <GlobalStyle>
                 <FlexWrapper>
-                    <HeroHeader>Najlepsze promocje</HeroHeader>
+                    <HeroHeader>Nasz wybór dla ciebie</HeroHeader>
                 </FlexWrapper>
                 <HeroWrapper>
                     {this.state.posts.map((element, i) => {
@@ -33,7 +33,8 @@ class HeroSection extends Component {
                                     <HeroImg src={element.titleImg}/>
                                 </Link>
                                 <HeroCaption>
-                                    <HeroImgText to={element.slug}>{element.title} <br/> @ {element.createdAt.slice(0,10)} </HeroImgText>
+                                    <HeroImgText to={element.slug}>{element.title} </HeroImgText>
+                                    <ReadMoreButton to={element.slug}>Czytaj dalej</ReadMoreButton>
                                 </HeroCaption>
                             </ImgWrapper>
                         );
@@ -46,6 +47,7 @@ class HeroSection extends Component {
 
 const HeroHeader = styled.h1`
     font-size: 1.7rem;
+    margin-top: 1rem;
 
     &::after {
         display: block;
@@ -64,6 +66,19 @@ const FlexWrapper = styled.div`
     align-items: center;
 `
 
+const ReadMoreButton = styled(Link)`
+    width: 25%;
+    height: 3.5rem;
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 0 1rem;
+    padding: 0.4rem;
+    color: white;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    background-color: #03adfc;
+`
+
 const GlobalStyle = styled.div`
     &, &::before, &::after {
         margin: 0;
@@ -75,10 +90,11 @@ const GlobalStyle = styled.div`
 const HeroWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    width: 100%;
+    width: 90%;
     margin: auto;
+    height: auto;
     background-color: white;
 
 
@@ -91,23 +107,24 @@ const HeroWrapper = styled.div`
 `
 
 const HeroImg = styled.img`
-    height: 25rem;
+    height: auto;
+    max-width: 100%;
     margin: 2rem 0;
 `
 
 const HeroCaption = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    width: 50%;
+    width: 500px;
     height: 5rem;
-    margin-left: 2rem;
-    margin-top: -7.8rem;
-    padding: 5px;
-    background-color: black;
+    /* margin-left: 1.5rem; */
+    margin-top: -2rem;
+    padding: 1rem;
+    background-color: coral;
 `
 
-const HeroImgText = styled(Link)`
+const HeroImgText = styled.h1`
     font-size: 18px;
     color: white;
 `
@@ -117,9 +134,10 @@ const ImgWrapper = styled.div`
     flex-direction: column;
 
     img {
-        width: 90%;
+        max-width: 100%;
+        height: auto;
         margin: 2rem 0;
-        margin-left: 1.5rem;
+        /* margin-left: 1.5rem; */
     }
 `
 
