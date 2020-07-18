@@ -91,8 +91,7 @@ class PostEditor extends Component {
                 <InsideWrapper>
                     <TextArea value={this.state.content} required name="content" placeholder="Zacznij pisać.." onChange={this.handleChange}></TextArea>
                 </InsideWrapper>
-                    <StyledButton type="submit" onClick={this.handleSubmit}>Dodaj nowy post</StyledButton>
-                    {this.state._id ? <StyledButton type="submit" onClick={() => {this.handleSubmitEdit(this.state._id)}}>Edytuj post</StyledButton> : null}
+                    {this.state._id ? <StyledButton type="submit" onClick={() => {this.handleSubmitEdit(this.state._id)}}>Edytuj post</StyledButton> : <StyledButton type="submit" onClick={this.handleSubmit}>Dodaj nowy post</StyledButton>}
                     <h1>Podgląd contentu</h1>
                 <ContentWrapper dangerouslySetInnerHTML={{__html: this.state.content}}></ContentWrapper>
             </Wrapper>
