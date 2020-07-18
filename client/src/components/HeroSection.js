@@ -78,29 +78,21 @@ const HeroWrapper = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    /* height: 27.5rem; */
     margin: auto;
-    /* margin-top: 3rem; */
     background-color: white;
+
 
     /* img { width: 100%; } */
     @media (min-width: 768px) {
         & {
             flex-direction: row;
         }
-
-        img {
-            margin-left: 1rem;
-            margin-right: 1rem;
-            width: auto;
-        }
     }
 `
 
 const HeroImg = styled.img`
-    /* width: auto; */
     height: 25rem;
-    margin: 2rem;
+    margin: 2rem 0;
 `
 
 const HeroCaption = styled.div`
@@ -123,6 +115,12 @@ const HeroImgText = styled(Link)`
 const ImgWrapper = styled.div`
     display: flex;
     flex-direction: column;
+
+    img {
+        width: 90%;
+        margin: 2rem 0;
+        margin-left: 1.5rem;
+    }
 `
 
 export default HeroSection;

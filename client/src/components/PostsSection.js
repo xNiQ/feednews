@@ -148,7 +148,7 @@ const PostDetails = styled.div`
     width: 100%;
     background-color: white;
     height: 30rem;
-    margin: 2rem;
+    margin: 1.5rem;
     -webkit-box-shadow: 1px 2px 9px 2px rgba(0,0,0,0.75);
     -moz-box-shadow: 1px 2px 9px 2px rgba(0,0,0,0.75);
     box-shadow: 1px 2px 9px 2px rgba(0,0,0,0.75);
@@ -164,7 +164,7 @@ const PostDetails = styled.div`
 
     h1 {
         font-size: 2rem;
-        margin: 1rem;
+        margin: 1rem 0;
     }
 
     a {
