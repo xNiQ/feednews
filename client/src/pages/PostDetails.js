@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import styled from 'styled-components';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 class PostDetails extends Component {
     constructor(props) {
@@ -15,7 +16,6 @@ class PostDetails extends Component {
     }
 
     async componentDidMount() {
-        // All posts
         const allPosts = await axios.get(`/post/`);
         const allPostsData = allPosts.data;
 
@@ -23,8 +23,7 @@ class PostDetails extends Component {
         const { match : { params }} = this.props;
         const response = await axios.get(`/post/${params.slug}`);
         const postResponse = response.data[0];
-        this.setState({post : postResponse, posts : allPostsData})
-
+        this.setState({post : postResponse, posts: allPostsData})
     }
 
     shuffle(array) {
@@ -50,7 +49,9 @@ class PostDetails extends Component {
         const { post, posts } = this.state;
         return (
             <GlobalStyle>
-                <title>{post.title}</title>
+                <Helmet>
+                     <title>{`Twojerabaciki.pl - ${post.title}`}</title>
+                </Helmet>
                 <Navbar/>
                 <Header>
                     <img src={post.titleImg} alt="Title Img"/>
@@ -64,7 +65,7 @@ class PostDetails extends Component {
                     <h2 id="watchIt">Warto zobaczyć także:</h2>
                 <WatchLater>
                     {this.shuffle(posts).slice(0,5).map((element,i) => {
-                        return ( <WatchLaterItem key={i} titleImg={element.titleImg} slug={element.slug} title={element.title}/> )
+                        return ( <WatchLaterItem key={i} handleChangePage={this.handleChangePage} titleImg={element.titleImg} slug={element.slug} title={element.title}/> )
                     })}
                 </WatchLater>
             </GlobalStyle>
@@ -75,7 +76,7 @@ class PostDetails extends Component {
 const WatchLaterItem = (props) => (
     <WatchLaterItemWrapper>
         <img src={props.titleImg} alt="watchLaterImg"/>
-        <Link to={props.slug}><h3>{props.title}</h3></Link>
+        <Link to={props.slug} onClick={() => { window.location.replace(`/${props.slug}`)}}><h1>{props.title}</h1></Link>
     </WatchLaterItemWrapper>
 )
 
@@ -110,6 +111,10 @@ const WatchLaterItemWrapper = styled.div`
     img {
         width: 10rem;
         height: 10rem;
+    }
+
+    h1 {
+        font-size: 1.2rem;
     }
 `
 
