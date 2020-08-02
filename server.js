@@ -27,6 +27,10 @@ app.use('/user', userRoutes);
 const postRoutes = require('./routes/post');
 app.use('/post', postRoutes);
 
+//Message routes
+const messageRoutes = require('./routes/message');
+app.use('/message', messageRoutes);
+
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
     app.get('*', (req,res) => {

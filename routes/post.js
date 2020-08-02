@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const slugify = require('slugify');
-const User = require('../models/userSchema');
 const Post = require('../models/postSchema');
 const auth = require('../middlewares/authenticateToken');
 

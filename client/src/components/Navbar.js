@@ -13,15 +13,15 @@ const GlobalStyle = styled.div`
 const Nav = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 100%;
-    height: 3rem;
+    height: 5rem;
     background-color: black;
     color: white;
 `
 
 const LogoText = styled(Link)`
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin: 0;
     color: white;
     text-decoration: none;
@@ -32,19 +32,26 @@ const LogoText = styled(Link)`
     }
 `
 
-const TestButton = styled.button`
-    width: 4rem;
-    background-color: black;
+const OtherText = styled(Link)`
+    font-size: 1.2rem;
+    margin: 0;
     color: white;
-    border: solid 1px white;
+    text-decoration: none;
+    transition: transform 0.25s ease;
+
+    &:hover{
+        transform: scale(1.1,1.1);
+    }
 `
 
 const Navbar = (props) => {
     return (
         <GlobalStyle>
             <Nav>
+            <OtherText to="/zasady">Zasady</OtherText>
             <LogoText to="/">Twojerabaciki.pl</LogoText>
-            <Link to="/admin/dashboard"><TestButton>Admin</TestButton></Link>
+            <OtherText to="/kontakt">Kontakt</OtherText>
+            {/* <Link to="/admin/dashboard"><TestButton>Admin</TestButton></Link> */}
             </Nav>
         </GlobalStyle>
     )

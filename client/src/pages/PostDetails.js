@@ -23,6 +23,9 @@ class PostDetails extends Component {
         const { match : { params }} = this.props;
         const response = await axios.get(`/post/${params.slug}`);
         const postResponse = response.data[0];
+        if(!postResponse) {
+            window.location.replace("/error/404");
+        }
         this.setState({post : postResponse, posts: allPostsData})
     }
 
@@ -75,7 +78,7 @@ class PostDetails extends Component {
 
 const WatchLaterItem = (props) => (
     <WatchLaterItemWrapper>
-        <img src={props.titleImg} alt="watchLaterImg"/>
+        <Link to={props.slug}><img src={props.titleImg} alt="watchLaterImg"/></Link>
         <Link to={props.slug} onClick={() => { window.location.replace(`/${props.slug}`)}}><h1>{props.title}</h1></Link>
     </WatchLaterItemWrapper>
 )
@@ -119,7 +122,7 @@ const WatchLaterItemWrapper = styled.div`
 `
 
 const WatchLater = styled.section`
-    margin: 2rem;
+    margin: 3rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

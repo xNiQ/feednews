@@ -86,7 +86,7 @@ class PostEditor extends Component {
                 {this.state.error ? <ErrorHandler/> : null}
                 {this.state._id ? <StyledInput onChange={this.handleChange} disabled value={this.state.title} required name="title" type="text" placeholder="Tytuł"/> : <StyledInput onChange={this.handleChange} value={this.state.title} required name="title" type="text" placeholder="Tytuł"/>}
                 <StyledInput onChange={this.handleChange} value={this.state.titleImg} required name="titleImg" type="text" placeholder="Img URL"/>
-                <StyledInput onChange={this.handleChange} value={this.state.tag} required name="tag" type="text" placeholder="Tag"/>
+                <StyledInput onChange={this.handleChange} value={this.state.tag} required name="tag" type="text" placeholder="Tag ('Darmowe Pieniądze', 'Ankieta' itd itd"/>
                 <StyledInput onChange={this.handleChange} value={this.state.user} required name="user" type="text" placeholder="Kto dodał? (np: admin)"/>
                 <InsideWrapper>
                     <TextArea value={this.state.content} required name="content" placeholder="Zacznij pisać.." onChange={this.handleChange}></TextArea>

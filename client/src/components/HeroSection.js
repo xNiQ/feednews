@@ -23,7 +23,7 @@ class HeroSection extends Component {
         return (
             <GlobalStyle>
                 <FlexWrapper>
-                    <HeroHeader>Nasz wybór dla ciebie</HeroHeader>
+                    <HeroHeader>Nasz wybór dla ciebie na dziś</HeroHeader>
                 </FlexWrapper>
                 <HeroWrapper>
                     {this.state.posts.map((element, i) => {
@@ -92,13 +92,11 @@ const HeroWrapper = styled.div`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 90%;
-    margin: auto;
+    width: 100%;
+    margin: 0;
     height: auto;
     background-color: white;
 
-
-    /* img { width: 100%; } */
     @media (min-width: 768px) {
         & {
             flex-direction: row;
@@ -107,9 +105,9 @@ const HeroWrapper = styled.div`
 `
 
 const HeroImg = styled.img`
-    height: auto;
-    max-width: 100%;
-    margin: 2rem 0;
+    height: 500px;
+    width: 500px;
+    margin: 2rem 0rem;
 `
 
 const HeroCaption = styled.div`
@@ -118,7 +116,6 @@ const HeroCaption = styled.div`
     align-items: center;
     width: 500px;
     height: 5rem;
-    /* margin-left: 1.5rem; */
     margin-top: -2rem;
     padding: 1rem;
     background-color: coral;

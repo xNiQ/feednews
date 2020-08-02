@@ -130,7 +130,7 @@ const PaginationWrapper = styled.div`
 const LatestPosts = styled.div`
     display: flex;
     flex-direction: column;
-    max-width: 50%;
+    max-width: 75%;
     font-size: 1.5rem;
     margin-left: 5rem;
     margin-top: 2rem;
@@ -144,7 +144,7 @@ const LatestPost = styled(Link)`
 
 const ReadMoreButton = styled(Link)`
     width: 25%;
-    height: 3.5rem;
+    height: 4rem;
     font-size: 1.1rem;
     text-align: center;
     margin: auto;
