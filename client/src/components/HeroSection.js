@@ -111,12 +111,12 @@ const HeroWrapper = styled.div`
 `
 
 const HeroImg = styled.img`
-    height: auto;
+    height: 26rem;
     width: 100%;
     margin: 2rem 0rem;
-    
     @media (min-width: 768px) {
         width: 90%;
+        margin: 1rem 2rem;
     }
 `
 
@@ -132,6 +132,7 @@ const HeroCaption = styled.div`
     
     @media (min-width: 768px) {
         width: 90%;
+        margin: 0rem 2rem;
     }
 `
 
