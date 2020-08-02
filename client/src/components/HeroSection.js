@@ -26,6 +26,7 @@ class HeroSection extends Component {
                     <HeroHeader>Nasz wybór dla ciebie na dziś</HeroHeader>
                 </FlexWrapper>
                 <HeroWrapper>
+                    <FlexWrapper id="heroFlex">
                     {this.state.posts.map((element, i) => {
                         return (
                             <ImgWrapper key={i}>
@@ -39,6 +40,7 @@ class HeroSection extends Component {
                             </ImgWrapper>
                         );
                     })}
+                    </FlexWrapper>
                 </HeroWrapper>
             </GlobalStyle>
         )
@@ -64,6 +66,10 @@ const FlexWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media(max-width: 768px) {
+        flex-direction: column;
+    }
 `
 
 const ReadMoreButton = styled(Link)`
@@ -93,7 +99,7 @@ const HeroWrapper = styled.div`
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    margin: 0;
+    margin: auto;
     height: auto;
     background-color: white;
 
@@ -105,20 +111,28 @@ const HeroWrapper = styled.div`
 `
 
 const HeroImg = styled.img`
-    height: 500px;
-    width: 500px;
+    height: auto;
+    width: 100%;
     margin: 2rem 0rem;
+    
+    @media (min-width: 768px) {
+        width: 90%;
+    }
 `
 
 const HeroCaption = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 500px;
+    width: 100%;
     height: 5rem;
     margin-top: -2rem;
     padding: 1rem;
     background-color: coral;
+    
+    @media (min-width: 768px) {
+        width: 90%;
+    }
 `
 
 const HeroImgText = styled.h1`
@@ -129,13 +143,17 @@ const HeroImgText = styled.h1`
 const ImgWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    /* width: 100%; */
 
-    img {
+    @media (min-width: 768px) {
+        width: 60%;
+    }    
+
+    /* img {
         max-width: 100%;
         height: auto;
         margin: 2rem 0;
-        /* margin-left: 1.5rem; */
-    }
+    } */
 `
 
 export default HeroSection;

@@ -13,19 +13,27 @@ const GlobalStyle = styled.div`
 const Nav = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     width: 100%;
     height: 5rem;
     background-color: black;
     color: white;
+
+    @media (min-width: 768px) {
+        justify-content: space-evenly;
+    }
 `
 
 const LogoText = styled(Link)`
-    font-size: 2rem;
+    font-size: 1.4rem;
     margin: 0;
     color: white;
     text-decoration: none;
     transition: transform 0.25s ease;
+
+    @media (min-width: 768px) {
+        font-size: 2rem;
+    }
 
     &:hover{
         transform: scale(1.1,1.1);
@@ -33,11 +41,15 @@ const LogoText = styled(Link)`
 `
 
 const OtherText = styled(Link)`
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     margin: 0;
     color: white;
     text-decoration: none;
     transition: transform 0.25s ease;
+
+    @media (min-width: 768px) {
+        font-size: 1.2rem;
+    }
 
     &:hover{
         transform: scale(1.1,1.1);

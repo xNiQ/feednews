@@ -132,7 +132,7 @@ const LatestPosts = styled.div`
     flex-direction: column;
     max-width: 75%;
     font-size: 1.5rem;
-    margin-left: 5rem;
+    margin-left: 2rem;
     margin-top: 2rem;
 `
 
@@ -165,6 +165,7 @@ const PostDetails = styled.div`
     background-color: white;
     height: auto;
     margin: 1.5rem;
+    margin-left: 1.2rem;
     padding: 2rem;
     -webkit-box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.75);
     -moz-box-shadow: 1px 2px 4px 2px rgba(0,0,0,0.75);

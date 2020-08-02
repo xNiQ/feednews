@@ -105,7 +105,7 @@ const WatchLaterItemWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 28%;
+    width: 33%;
 
     a {
         color: black;
