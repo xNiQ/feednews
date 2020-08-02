@@ -54,6 +54,7 @@ class PostDetails extends Component {
             <GlobalStyle>
                 <Helmet>
                      <title>{`Twojerabaciki.pl - ${post.title}`}</title>
+                     {/* <meta property="og:title" content={`test`}/> */}
                 </Helmet>
                 <Navbar/>
                 <Header>
